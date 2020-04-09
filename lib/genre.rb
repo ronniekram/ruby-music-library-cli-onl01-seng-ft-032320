@@ -27,6 +27,10 @@ class Genre
     genre.save
     genre
   end
+  
+  def songs
+    @songs
+  end 
 
   def artists
     list = songs.map {|song| song.artist}

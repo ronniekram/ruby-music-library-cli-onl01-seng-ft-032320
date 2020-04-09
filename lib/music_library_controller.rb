@@ -36,7 +36,7 @@ class MusicLibraryController
   def list_artists
     #not hard coded 
     #prints all artist in numbered, alphabetical list
-    artists = Artist.all.sort_by{|a| a.name}
+    artists = Artist.all.sort {|a, b| a.name <=> b.name}
     
     artists.each_with_index {|s, i| puts "#{i + 1}. #{s.name}"} 
   end
@@ -44,7 +44,7 @@ class MusicLibraryController
   def list_genres
     #not hard coded 
     #prints all genres in numbered, alphabetical list
-    genres = Genre.all.sort_by{|g| g.name}
+    genres = Genre.all.sort {|a, b| a.name <=> b.name}
     
     genres.each_with_index {|s, i| puts "#{i + 1}. #{s.name}"} 
   end
@@ -56,7 +56,7 @@ class MusicLibraryController
     input = gets.strip.downcase
     #prints all songs by a particular artist in numbered, alphabetized list
     if artist = Artist.find_by_name(input)
-      artist.sort_by{|a| a.name}.each_with_index do |s, i|
+      artist.sort {|a, b| a.name <=> b.name}.each_with_index do |s, i|
         puts "#{i + 1}. #{s.name}"
       end
     end
@@ -69,7 +69,7 @@ class MusicLibraryController
     input = gets.strip.downcase
     #prints all songs by a particular artist in numbered, alphabetized list
     if genre = Genre.find_by_name(input)
-      genre.sort_by{|g| g.name}.each_with_index do |s, i|
+      genre.sort {|a, b| a.name <=> b.name}.each_with_index do |s, i|
         puts "#{i + 1}. #{s.name}"
       end
     end

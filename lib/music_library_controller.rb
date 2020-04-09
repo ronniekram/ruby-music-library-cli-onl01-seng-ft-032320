@@ -53,7 +53,7 @@ class MusicLibraryController
     #prompts user to enter an artist
     puts "Please enter the name of an artist:"
     #accepts user input
-    input = gets.strip.downcase
+    input = gets.strip
     #prints all songs by a particular artist in numbered, alphabetized list
     if artist = Artist.find_by_name(input)
       artist.songs.sort{|a, b| a.name <=> b.name}.each_with_index do |s, i|
@@ -66,7 +66,7 @@ class MusicLibraryController
     #prompts user to enter an artist
     puts "Please enter the name of a genre:"
     #accepts user input
-    input = gets.strip.downcase
+    input = gets.strip
     #prints all songs by a particular artist in numbered, alphabetized list
     if genre = Genre.find_by_name(input)
       genre.songs.sort{|a, b| a.name <=> b.name}.each_with_index do |s, i|

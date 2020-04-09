@@ -69,8 +69,8 @@ class MusicLibraryController
     input = gets.strip.downcase
     #prints all songs by a particular artist in numbered, alphabetized list
     if genre = Genre.find_by_name(input)
-      genre.sort {|a, b| a.name <=> b.name}.each_with_index do |s, i|
-        puts "#{i + 1}. #{s.name}"
+      genre.sort{|a, b| a.name <=> b.name}.each_with_index do |s, i|
+        puts "#{i + 1}. #{s.artist.name} - #{s.name}"
       end
     end
   end

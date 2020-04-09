@@ -30,7 +30,11 @@ class Genre
   
   def add_song(song)
     Song.new(song, artist, self)
-  end 
+  end
+  
+  def songs
+    @songs
+  end
 
   def artists
     list = songs.map {|song| song.artist}

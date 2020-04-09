@@ -28,10 +28,6 @@ class Genre
     genre
   end
   
-  def add_song(song)
-    Song.new(song, artist, self)
-  end
-  
   def songs
     @songs
   end
